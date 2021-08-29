@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 import CreateACalendar from './components/CreateACalendar/CreateACalendar';
@@ -13,20 +13,12 @@ const App = () => {
   const [loggedInUser, setLoggedInUser] = useState({});
   const [allCalendarData, setAllCalendarData] = useState();
 
-  useEffect(() => {
-    setTimeout(() => {
-      const calendarUri = 'https://aqueous-oasis-85656.herokuapp.com/calendars';
-      fetch(calendarUri)
-      .then(res => res.json())
-      .then(data => setAllCalendarData(data))
-    }, 3000);
-  }, [])
   return (
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
       <Router>
         <Switch>
           <Route exact path="/">
-            <Home allCalendarData={allCalendarData} />
+            <Home allCalendarData={allCalendarData} setAllCalendarData={setAllCalendarData} />
           </Route>
           <PrivateRoute exact path="/create-new-calendar">
             <CreateACalendar />

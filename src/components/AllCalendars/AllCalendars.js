@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-const AllCalendars = ({ allCalendarData }) => {
+const AllCalendars = ({ allCalendarData, setAllCalendarData }) => {
   console.log(allCalendarData);
+  const calendarUri = 'https://aqueous-oasis-85656.herokuapp.com/calendars';
+
+  useEffect(() => {
+      fetch(calendarUri)
+      .then(res => res.json())
+      .then(data => setAllCalendarData(data))
+  }, [setAllCalendarData])
   return (
     <div className="container">
       <div className="my-5">

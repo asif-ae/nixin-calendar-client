@@ -70,7 +70,7 @@ const Login = () => {
           <div className="p-5">
             <div className="div-input">
               <div className="login-brand-icon d-flex justify-content-center">
-                <a className="navbar-brand" href="/">NIXIN Calender</a>
+                <Link className="navbar-brand" to="/">NIXIN Calender</Link>
               </div>
               <div className="text-center text-blue pt-5"><h3>Login</h3></div>
             </div>

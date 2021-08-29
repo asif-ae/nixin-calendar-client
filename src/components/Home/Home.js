@@ -2,11 +2,11 @@ import React, { Fragment } from 'react';
 import AllCalendars from '../AllCalendars/AllCalendars';
 import Navbar from '../Shared/Navbar/Navbar';
 
-const Home = ({ allCalendarData }) => {
+const Home = ({ allCalendarData, setAllCalendarData }) => {
   return (
     <Fragment>
       <Navbar />
-      <AllCalendars allCalendarData={allCalendarData} />
+      <AllCalendars allCalendarData={allCalendarData} setAllCalendarData={setAllCalendarData} />
     </Fragment>
   );
 };
